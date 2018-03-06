@@ -24,7 +24,7 @@ public class AdminController {
 	
 	@GetMapping("/atmBalance/{atmId}")
 	public AtmBalance getAtmBalance(@PathVariable("atmId") int atmId){
-		LOGGER.info("Admin check ATM Balance of ATM Id " + atmId);
+		LOGGER.info("Admin checks ATM Balance of ATM Id " + atmId);
 		return adminService.getATMBalance(atmId);
 	}
 	
