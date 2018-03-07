@@ -9,9 +9,16 @@ Steps for build
 2. Open terminal/Command prompt in the base package where pom.xml is present
 3. run "mvn clean package"
 
+
+Steps to Test application by running JUnit test cases
+1. Open terminal/Command prompt in the base package where pom.xml is present
+2. run "mvn clean test"
+
+
 Steps to run application
 1. Open terminal/Command prompt in the base package where pom.xml is present
 2. run "java -jar target/CashMan-3001-0.0.1-SNAPSHOT.jar"
+
 
 I have User Springboot 2.0.0.RELEASE version with following starter projects
 1. web
@@ -23,6 +30,7 @@ I have User Springboot 2.0.0.RELEASE version with following starter projects
 It is a web application developed in MVC design pattern.
 The in memory database H2-console is enabled and available on this URL "http://localhost:3000/h2-console"
 When application is up, the live data can be seen in this console.
+
 
 On startup only I have added one ATM with atmId = 1 with following setup
 One ATM with atmId 1 is added in database with following properties.
@@ -44,25 +52,36 @@ In case of both slot becomes empty then ATM status will be "OutOfCash"
 It expose following REST end points for Bank Admin and Bank clients.
 
 1. To check ATM balance
+
 GET request to "http://localhost:3000/admin/atmBalance/{atmId}"
+
 Example : http://localhost:3000/admin/atmBalance/1
+
 Response: {
     "total": 1230,
     "count20": 24,
     "count50": 15
 }
 
+
 2. To Check ATM status
+
 GET request to "http://localhost:3000/client/atmStatus/{atmId}"
+
 Example: http://localhost:3000/client/atmStatus/1
+
 Response: {
     "status": "Working",
     "description": "ATM is working and sufficient currency available in the ATM"
 } 
 
+
 3. To get ATM Slots available status for refill
+
 GET request to "http://localhost:3000/admin/atmSlotSpace/{atmId}"
+
 Example: http://localhost:3000/admin/atmSlotSpace/1
+
 Response:{
     "atmId": 1,
     "denomination20": 76,
@@ -70,9 +89,13 @@ Response:{
     "info": "Available space for refill"
 }
 
+
 4. To request to Withdraw  money
+
 Get Request to: "http://localhost:3000/client/withdraw/{atmId}/{amount}"
+
 Example: http://localhost:3000/client/withdraw/1/110
+
 Response:{
     "atmId": 1,
     "denomination20": 3,
@@ -80,14 +103,19 @@ Response:{
     "info": "Congratulation, withdrawal of amount 110 is successful, Please collect your cash"
 }
 
+
 5. To refill the ATM
+
 PUT request to: "http://localhost:3000/admin/refillAtm"
+
 Request Body: {
     "atmId": 1,
     "denomination20": 2,
     "denomination50": 20
 }
+
 Headers= Content-Type: application/json
+
 
 Response:{
     "atmId": 1,
@@ -96,18 +124,22 @@ Response:{
     "info": "ATM Refilled successfully, This is new ATM balance"
 }
 
+
 In case of requested notes are more than available space
+
 Request body: {
     "atmId": 1,
     "denomination20": 200,
     "denomination50": 20
 }
+
 Response:{
     "atmId": 1,
     "denomination20": 26,
     "denomination50": 35,
     "info": "ATM Balance does not updated. Refill failed due to insufficient space in ATM slot, please try maximum note of $20 <= 74  and $50 <= 65"
 }
+
 
 ****************************************************************************************************************
 Problem Summary
