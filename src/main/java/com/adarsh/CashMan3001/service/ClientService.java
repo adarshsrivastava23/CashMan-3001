@@ -99,7 +99,7 @@ public class ClientService {
 			atmTransactionStatus.setAtmId(atmId);
 			atmTransactionStatus.setDenomination20(i);
 			atmTransactionStatus.setDenomination50(j);
-			atmTransactionStatus.setInfo("Congratulation, withdrawal of amount " + amount + " is successfull, "
+			atmTransactionStatus.setInfo("Congratulation, withdrawal of amount " + amount + " is successful, "
 											+ "Please collect your cash");
 
 			LOGGER.info("Withdrawal of amount " + amount + " is successfull");
