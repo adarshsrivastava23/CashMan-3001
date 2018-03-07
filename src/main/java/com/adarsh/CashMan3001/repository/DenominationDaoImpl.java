@@ -11,6 +11,8 @@ import org.springframework.stereotype.Repository;
 
 import com.adarsh.CashMan3001.model.Denomination;
 
+/*This class has basic implementation of DenominationDao Interface*/
+
 @Repository
 @Transactional
 public class DenominationDaoImpl implements DenominationDao {

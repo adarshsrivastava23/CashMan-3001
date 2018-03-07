@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 
 import com.adarsh.CashMan3001.model.ATM;
 
+/*This Interface is defining basic CRUD operation of ATM entity to be implemented*/
+
 @Repository
 @Transactional
 public interface ATMDao {

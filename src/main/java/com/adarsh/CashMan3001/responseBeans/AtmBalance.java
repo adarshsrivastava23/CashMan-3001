@@ -1,5 +1,10 @@
 package com.adarsh.CashMan3001.responseBeans;
 
+/* This class is used for REST communication for serializing and deserializing
+ * JSON message to Java Bean
+ * 
+ *  This class is not eligible to persistence in database.*/
+
 public class AtmBalance {
 	
 	private int total;

@@ -1,18 +1,16 @@
 package com.adarsh.CashMan3001.model;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
+
+/*This is Basic ATMStatus entity which will be persistent in the database*/
 
 @Entity
 @NamedQuery(name="find_all_atm_status", query="select a from AtmStatus a")
 public class AtmStatus {
 
 	@Id
-	@GeneratedValue
-	private int statusid;
-
 	private String status;
 	private String Description;
 	
@@ -24,12 +22,7 @@ public class AtmStatus {
 		this.status = status;
 		Description = description;
 	}
-	public int getStatusid() {
-		return statusid;
-	}
-	public void setStatusid(int statusid) {
-		this.statusid = statusid;
-	}
+
 	public String getStatus() {
 		return status;
 	}

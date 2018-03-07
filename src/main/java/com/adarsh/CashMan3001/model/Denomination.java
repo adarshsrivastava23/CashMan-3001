@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 
+/*This is Basic ATM Denomination entity which will be persistent in the database*/
+
 @Entity
 @NamedQuery(name="find_all_denomination", query="select d from Denomination d")
 public class Denomination {

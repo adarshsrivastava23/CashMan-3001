@@ -11,6 +11,8 @@ import org.springframework.stereotype.Repository;
 
 import com.adarsh.CashMan3001.model.AtmStatus;
 
+/*This class has basic implementation of AtmStatusDao Interface*/
+
 @Repository
 @Transactional
 public class AtmStatusDaoImpl implements AtmStatusDao {
@@ -24,8 +26,8 @@ public class AtmStatusDaoImpl implements AtmStatusDao {
 	}
 
 	@Override
-	public AtmStatus getAtmStatus(int atmStatusId) {
-		return entityManager.find(AtmStatus.class, atmStatusId);
+	public AtmStatus getAtmStatus(String status) {
+		return entityManager.find(AtmStatus.class, status);
 	}
 
 	@Override

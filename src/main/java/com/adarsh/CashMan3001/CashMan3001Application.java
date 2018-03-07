@@ -16,6 +16,8 @@ import com.adarsh.CashMan3001.repository.ATMDao;
 import com.adarsh.CashMan3001.repository.AtmStatusDao;
 import com.adarsh.CashMan3001.repository.DenominationDao;
 
+//This is base class of Application.
+
 @SpringBootApplication
 public class CashMan3001Application implements CommandLineRunner {
 
@@ -35,6 +37,22 @@ public class CashMan3001Application implements CommandLineRunner {
 		SpringApplication.run(CashMan3001Application.class, args);
 		LOGGER.info("Application stated...");
 	}
+	
+	/* Auto Fill sample data to database to bootstrap application
+	 * One ATM with atmId 1 is added in database with following properties
+	 * 
+	 * By default ATM will be in "Working" status.
+	 * 
+	 * It will have 24 Note of $20, The ATM slot for $20 can have maximum of 100 note
+	 * and minimum threshold value 10. In case of after withdrawal of money $20 note becomes less that 10 then 
+	 * ATM status will be "LowBalance" and a notification will go to Bank Admin to refill the ATM.
+	 * 
+	 * It will have 15 Note of $50, The ATM slot for $50 can have maximum of 100 note
+	 * and minimum threshold value 10. In case of after withdrawal of money $25 note becomes less that 10 then 
+	 * ATM status will be "LowBalance" and a notification will go to Bank Admin to refill the ATM.
+	 * 
+	 * In case of both slot becomes empty then ATM status will be "OutOfCash"
+	 * */
 
 	@Override
 	@Transactional
@@ -50,7 +68,7 @@ public class CashMan3001Application implements CommandLineRunner {
 		AtmStatus WorkingAtmStatus = new AtmStatus("Working", "ATM is working and sufficient currency");
 		AtmStatus OutOfOrderAtmStatus = new AtmStatus("OutOfOrder", "ATM is not working due to technical reason");
 		AtmStatus OutOfCashAtmStatus = new AtmStatus("OutOfCash", "ATM is working but out of cash. Please Refill immediately");
-		AtmStatus LowCashAtmStatus = new AtmStatus("LowCash", "ATM is working and running with low cash. Please refill ASAP.");
+		AtmStatus LowCashAtmStatus = new AtmStatus("LowBalance", "ATM is working and running with low cash. Please refill ASAP.");
 		
 		LOGGER.info("created 4 ATM status. Working, OutOfOrder, OutOfCash and LowCash. Working is default status...");
 		WorkingAtmStatus = AtmStatusService.createAtmStatus(WorkingAtmStatus);

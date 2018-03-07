@@ -5,6 +5,8 @@ import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 
+/*This is Basic ATM entity which will be persistent in the database*/
+
 @Entity
 @NamedQuery(name="find_all_atm", query="select a from ATM a")
 public class ATM {

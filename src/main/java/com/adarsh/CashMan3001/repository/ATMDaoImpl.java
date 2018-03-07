@@ -11,6 +11,8 @@ import org.springframework.stereotype.Repository;
 
 import com.adarsh.CashMan3001.model.ATM;
 
+/*This class has basic implementation of ATMDao Interface*/
+
 @Repository
 @Transactional
 public class ATMDaoImpl implements ATMDao {
