@@ -70,7 +70,7 @@ public class AdminService {
 			
 			atmTransactionStatus.setDenomination20(count20);
 			atmTransactionStatus.setDenomination50(count50);
-			atmTransactionStatus.setInfo("ATM Balance does not updated. Refill failed due to unsufficient space in ATM slot, please try maximum note of $20 <= " +
+			atmTransactionStatus.setInfo("ATM Balance does not updated. Refill failed due to insufficient space in ATM slot, please try maximum note of $20 <= " +
 					(count20Max - count20) + "  and $50 <= " + (count50Max - count50));
 		}else{
 			LOGGER.info("ATM Refilled successfully, This is new ATM balance");

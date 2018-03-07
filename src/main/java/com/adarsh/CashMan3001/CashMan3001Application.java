@@ -65,7 +65,7 @@ public class CashMan3001Application implements CommandLineRunner {
 		LOGGER.info("created 20 denomination slot for ATM...");
 		denomination50 = denominationService.createDenomination(denomination50);
 		
-		AtmStatus WorkingAtmStatus = new AtmStatus("Working", "ATM is working and sufficient currency");
+		AtmStatus WorkingAtmStatus = new AtmStatus("Working", "ATM is working and sufficient currency available in the ATM");
 		AtmStatus OutOfOrderAtmStatus = new AtmStatus("OutOfOrder", "ATM is not working due to technical reason");
 		AtmStatus OutOfCashAtmStatus = new AtmStatus("OutOfCash", "ATM is working but out of cash. Please Refill immediately");
 		AtmStatus LowCashAtmStatus = new AtmStatus("LowBalance", "ATM is working and running with low cash. Please refill ASAP.");
