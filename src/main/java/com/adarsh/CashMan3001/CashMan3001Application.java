@@ -15,6 +15,7 @@ import com.adarsh.CashMan3001.model.Denomination;
 import com.adarsh.CashMan3001.repository.ATMDao;
 import com.adarsh.CashMan3001.repository.AtmStatusDao;
 import com.adarsh.CashMan3001.repository.DenominationDao;
+import com.adarsh.CashMan3001.service.LowAtmBalanceCheckRunner;
 
 //This is base class of Application.
 
@@ -31,6 +32,9 @@ public class CashMan3001Application implements CommandLineRunner {
 	
 	@Autowired
 	ATMDao atmDao;
+	
+	@Autowired
+	LowAtmBalanceCheckRunner lowAtmBalanceCheckRunner;
 
 	
 	public static void main(String[] args) {
@@ -81,8 +85,8 @@ public class CashMan3001Application implements CommandLineRunner {
 		LOGGER.info("created one ATM instance with ID 1...");
 		atmDao.createATM(atm);
 		
-		
-
+		// Calling scheduler to check ATM balance. In case of low balance send notification to Bank Admin
+		lowAtmBalanceCheckRunner.checkLowBalance();
 		
 	}
 }

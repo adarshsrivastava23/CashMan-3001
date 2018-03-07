@@ -116,7 +116,8 @@ public class ClientService {
 	}
 
 	//	Check ATM minimum balance after withdrawal of money
-	private String checkForMinimumBalance(int atmId) {
+	public String checkForMinimumBalance(int atmId) {
+		LOGGER.info("Balance Check for ATM id: " + atmId);
 		int count20 = atmDao.getATM(atmId).getSlot20().getDenominationAvailableCount();
 		int count50 = atmDao.getATM(atmId).getSlot50().getDenominationAvailableCount();
 
